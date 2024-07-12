@@ -1,0 +1,38 @@
+name: Visual Builder QuickStart builds
+on:
+  pull_request_target:
+    types:
+      - closed
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: Set tag name
+      run: echo "tag=${GITHUB_HEAD_REF##*/}" >> $GITHUB_ENV
+    - name: Package Private Endpoint Required Resources
+      run: |
+        cd ./private-endpoint-resources && zip -r ../private-endpoint-resources . && cd -
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ env.tag }}
+        release_name: Visual Builder Private Endpoint Quick Start release ${{ env.tag }}
+        body: |
+          Changes in this Release
+          - This Quick Start uses [OCI Resource Manager](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm) to make deployment easy, sign up for an [OCI account](https://cloud.oracle.com/en_US/tryit) if you don't have one, and just click the button below:
+            [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/vlalan-code/vb/releases/latest/download/private-endpoint-resources.zip)
+    - name: Upload Private Endpoint Required Resources Terraform package
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./private-endpoint-resources.zip
+        asset_name: private-endpoint-resources.zip
+        asset_content_type: application/zip
