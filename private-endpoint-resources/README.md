@@ -5,7 +5,7 @@
 
 # **OCI Quick start to create the required resources for a Private Endpoint enabled Visual Builder instance**
 
-[![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/vlalan-code/vb/releases/latest/download/private-endpoint-resources.zip)
+[![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/oracle-quickstart/oci-visual-builder/releases/latest/download/private-endpoint-resources.zip)
 
 
 ## Introduction
