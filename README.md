@@ -1,5 +1,5 @@
 # oci-quickstart-template
-
+ 
 The [Oracle Cloud Infrastructure (OCI) Quick Start](https://github.com/oracle-quickstart?q=oci-quickstart) is a collection of examples that allow Oracle Cloud Infrastructure users to get a quick start deploying advanced infrastructure on OCI.
 
 The oci-quickstart-template repository contains the template that can be used for accelerating the construction of quickstarts that runs from local Terraform CLI, [OCI Resource Manager](https://docs.cloud.oracle.com/en-us/iaas/Content/ResourceManager/Concepts/resourcemanager.htm) and [OCI Cloud Shell](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm).
@@ -247,4 +247,4 @@ variable "marketplace_source_images" {
 
 ```
 
-2. Run your tests using the Terraform CLI or build a new package and deploy on ORM.
+2. Run your test using the Terraform CLI or build a new package and deploy on ORM.
