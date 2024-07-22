@@ -1,7 +1,7 @@
 resource "oci_load_balancer_load_balancer" "public_load_balancer" {
   count = local.boolean_create_public_load_balancer ? 1 : 0
   compartment_id = var.compartment_ocid
-  display_name = "Customer-public-load-balancer"
+  display_name = var.load_balancer_name
   shape = "flexible"
   shape_details {
     maximum_bandwidth_in_mbps = 10

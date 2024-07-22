@@ -17,28 +17,18 @@ variableGroups:
       - tenancy_ocid
       - region
       - release
-
-  - title: Required Configuration
-    visible: true
-    variables:
       - compartment_ocid
-      - show_advanced
 
   - title: "Virtual Cloud Network Configuration"
-    visible:
-      and:
-        - show_advanced
     variables:
       - vcn_cidr
       - vcn_display_name
       - vcn_dns_label
 
   - title: "Load Balancer Configuration"
-    visible:
-      and:
-        - show_advanced
     variables:
       - create_public_load_balancer
+      - load_balancer_name
       - private_endpoint_ip
 
 ######################################################
@@ -64,22 +54,11 @@ variables:
     description: The region in which to create all resources
     required: true
 
-######################################################
-##############     REQUIRED VARIABLES     #############
-######################################################
-  show_advanced:
-    type: boolean
-    title: "Show advanced options?"
-    description: "Shows advanced options."
-    visible: true
-    default: false
-
   compartment_ocid:
     type: oci:identity:compartment:id
     required: true
     title: Compartment
     description: The compartment in which to create all resources
-    default: compartment_ocid
 
 ######################################################
 ##############     NETWORK VARIABLES     #############
@@ -96,7 +75,7 @@ variables:
   vcn_display_name:
     type: string
     required: false
-    default: "Customer-vcn"
+    default: "Customer-vcn-1"
     title: Name
     description: The name of the new Virtual Cloud Network (VCN)
 
@@ -104,13 +83,13 @@ variables:
     type: string
     required: true
     title: DNS Label
-    default: "customervcn"
+    default: "customervcn1"
     maxLength: 15
     description: VCN DNS Label. Only letters and numbers, starting with a letter. 15 characters max.
 
 
 ######################################################
-##############    LOAD BALANCER VARIABLES     #############
+##############  LOAD BALANCER VARIABLES  #############
 ######################################################
 
   create_public_load_balancer:
@@ -120,9 +99,20 @@ variables:
     visible: true
     default: false
 
+  load_balancer_name:
+    type: string
+    title: "Load Balancer display name."
+    description: "Provide the display name of the public load balancer."
+    visible:
+      and:
+        - create_public_load_balancer
+    default: Customer-public-load-balancer-1
+
   private_endpoint_ip:
     type: string
     title: "Private Endpoint IP for load balancer backend configuration."
     description: "Provide the private endpoint ip that will be used while creating a Private Endpoint enabled Visual Builder instance. This is optional and load balancer backend can be updated with the visual builder's private endpoint ip later."
-    visible: true
+    visible:
+      and:
+        - create_public_load_balancer
     default: null
