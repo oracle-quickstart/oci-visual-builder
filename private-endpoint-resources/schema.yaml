@@ -61,16 +61,6 @@ variables:
     description: The compartment in which to create all resources
 
 ######################################################
-##############     REQUIRED VARIABLES     #############
-######################################################
-
-#  compartment_ocid:
-#    type: oci:identity:compartment:id
-#    required: true
-#    title: Compartment
-#    description: The compartment in which to create all resources
-
-######################################################
 ##############     NETWORK VARIABLES     #############
 ######################################################
 
@@ -99,7 +89,7 @@ variables:
 
 
 ######################################################
-##############    LOAD BALANCER VARIABLES     #############
+##############  LOAD BALANCER VARIABLES  #############
 ######################################################
 
   create_public_load_balancer:
