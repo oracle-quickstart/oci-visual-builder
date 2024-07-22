@@ -1,13 +1,16 @@
 ## Consumer Subnet
 variable "compartment_ocid" {
+  type = string
 }
 
 variable "vcn_display_name" {
-  default = "Consumer-vcn"
+  default = "Consumer-vcn-1"
+  type = string
 }
 
 variable "vcn_dns_label" {
-  default = "consumervcn"
+  default = "consumervcn1"
+  type = string
 }
 
 variable "vcn_cidr" {
@@ -24,4 +27,9 @@ variable "private_endpoint_ip" {
   default = null
   type = string
   description = "The private endpoint ip used during creation of Visual Builder instance, this is used to configure the backend of the load balancer"
+}
+
+variable "load_balancer_name" {
+  type = string
+  default = "Customer-public-load-balancer-1"
 }
