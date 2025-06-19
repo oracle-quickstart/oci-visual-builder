@@ -14,3 +14,18 @@ At a high level we have the following quick start apps:
 - [Required resources in tenancy to create a Private Endpoint enabled Visual Builder instance](./private-endpoint-resources/README.md):
 
   This terraform app for adding the required resources like VCN, Subnets, Gateways, Security Lists, Route Table and optionally a Load Balancer to access a Private Endpoint enabled Visual Builder instance.
+
+## Contributing
+
+This project welcomes contributions from the community. Before submitting a pull request, please [review our contribution guide](./CONTRIBUTING.md)
+
+## Security
+
+Please consult the [security guide](./SECURITY.md) for our responsible security vulnerability disclosure process
+
+## License
+
+Copyright (c) 2018-2020 Oracle and/or its affiliates.
+
+Released under the Universal Permissive License v1.0 as shown at
+<https://oss.oracle.com/licenses/upl/>.
